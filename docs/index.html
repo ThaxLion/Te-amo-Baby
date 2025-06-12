@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia das Namoradas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        /* Efeito de desfoque e vidro */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        /* Fundo romântico com gradiente e padrão */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ffb3b3 100%);
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.1)" d="M30,50 Q50,30 70,50 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z"></path></svg>');
+            background-size: 20%;
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Cabeçalho estilizado */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        h1 {
+            color: #d32f2f;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .couple-names {
+            font-size: 2.2em;
+            color: #d32f2f;
+            margin: 25px 0;
+            font-family: 'Brush Script MT', cursive;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        /* Seções de conteúdo */
+        .message-section {
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .message {
+            font-size: 1.25em;
+            text-align: justify;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Novas seções especiais */
+        .special-section {
+            padding: 25px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .special-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #ffb3b3);
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            font-size: 1.5em;
+        }
+        
+        /* Galeria de fotos */
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .photo-item {
+            flex: 1 1 200px;
+            max-width: 250px;
+            height: 180px;
+            background-color: #f8d7da;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d32f2f;
+        }
+        
+        .photo-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Lista de motivos */
+        .reasons-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 25px 0;
+        }
+        
+        .reasons-list li {
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.3s;
+        }
+        
+        .reasons-list li:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .reasons-list li::before {
+            content: "❤️";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+        /* Efeitos de hover */
+        .hover-effect {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-effect:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+        }
+        
+        /* Animação de corações */
+        .heart {
+            position: fixed;
+            font-size: 20px;
+            color: #ff6b6b;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Efeito de digitação */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #d32f2f;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #d32f2f; }
+        }
+        
+        /* Efeito de flutuação suave */
+        .float-animation {
+            animation: floatElement 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatElement {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Botão flutuante de "Voltar ao topo" */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #d32f2f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: #b71c1c;
+        }
+        
+        /* Efeito de pulse */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Efeito de gradiente animado no fundo */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ff8e8e, #ff6b6b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -2;
+            opacity: 0.7;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Efeito de borda animada */
+        .animated-border {
+            position: relative;
+        }
+        
+        .animated-border::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: -1;
+            background: linear-gradient(45deg, #ff6b6b, #ffb3b3, #ff6b6b);
+            background-size: 200% 200%;
+            border-radius: inherit;
+            animation: borderGradient 3s ease infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes borderGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Contador de amor - ESTILO ATUALIZADO */
+        .love-counter-container {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 600px;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-counter-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,107,107,0.1), rgba(255,179,179,0.1));
+            z-index: -1;
+            border-radius: inherit;
+        }
+        
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .counter-item {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .counter-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .counter-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffb3b3);
+        }
+        
+        .counter-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 10px 0;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .counter-label {
+            font-size: 1em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Efeito de confete */
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Efeito de blur nas bordas */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: -1;
+            mask: radial-gradient(circle at center, transparent 0%, black 70%);
+            -webkit-mask: radial-gradient(circle at center, transparent 0%, black 70%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Corações animados -->
+    <div id="hearts-container"></div>
+    
+    <div class="container glass-effect">
+        <header class="hover-effect animated-border">
+            <h1 class="pulse">Declaração de Amor Eterna</h1>
+            <div style="font-size: 2em; color: #d32f2f; margin: 15px 0;">❤️ ❤️ ❤️</div>
+            <div class="couple-names float-animation">Benjamin & Thalita</div>
+        </header>
+        
+        <!-- Mensagem principal -->
+        <div class="message-section glass-effect hover-effect hover-glow">
+            <div class="message">
+                <p>Meu amor,</p>
+                
+                <p>Neste Dia dos Namorados, quero expressar tudo o que sinto por você. Cada dia ao seu lado é uma bênção que eu nunca darei como satisfeita. Você transformou minha vida de maneiras que palavras não podem descrever.</p>
+                
+                <p>Esta declaração é um tributo ao nosso amor e a todos os momentos especiais que compartilhamos e ainda iremos .</p>
+            </div>
+        </div>
+        
+        <!-- Seção 1: Nossa Jornada -->
+        <div class="special-section glass-effect hover-effect">
+            <h2 class="section-title float-animation"><i class="fas fa-heartbeat"></i> Nossa Jornada de Amor</h2>
+            
+            <div class="photo-gallery">
+                <div class="photo-item">[Primeiro encontro]</div>
+                <div class="photo-item">[Primeira viagem]</div>
+                <div class="photo-item">[Momento especial]</div>
+            </div>
+            
+            <p>Lembro de cada etapa da nossa história como se fosse ontem. Desde o primeiro olhar até os planos que fazemos para o futuro, cada momento com você é um tesouro que guardo no meu coração.</p>
+            
+            <p>Do nosso primeiro encontro casual que voce dormiu vendo filme ao primeiro beijo que mudou tudo, cada memória é como uma pérola preciosa que coleciono com carinho. As passeios que fizemos juntos, as risadas compartilhadas, até mesmo as discussões que nos fortaleceram - tudo faz parte dessa linda caminhada que é o nosso amor.</p>
+        </div>
+        
+        <!-- Seção 2: Razões para te amar -->
+        <div class="special-section glass-effect hover-effect">
+            <h2 class="section-title float-animation"><i class="fas fa-heart"></i> 10 Razões Porque Te Amo</h2>
+            
+            <ol class="reasons-list">
+                <li>Seu sorriso ilumina meus dias mais cinzentos</li>
+                <li>Sua maneira única de me entender sem palavras</li>
+                <li>O jeito que você me faz sentir especial todos os dias</li>
+                <li>Sua força e coragem que me inspiram</li>
+                <li>Seu coração generoso e cheio de amor</li>
+                <li>O modo como você transforma o algo chato em extraordinário</li>
+                <li>Sua maneira de ser que é contagiante</li>
+                <li>O conforto que sinto apenas por estar ao seu lado</li>
+                <li>Seu apoio incondicional em todos os meus sonhos</li>
+                <li>Porque com você, eu sou a melhor versão de mim mesmo</li>
+            </ol>
+            
+            <p>E poderia listar mil outras razões, mas o mais importante é: eu te amo por ser você, exatamente como você é.</p>
+        </div>
+        
+        <!-- Seção de Música Romântica -->
+        <div class="special-section glass-effect hover-effect">
+            <h2 class="section-title float-animation"><i class="fas fa-music"></i> Nossa Trilha Sonora</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Esta música representa nosso amor:</p>
+            
+            <div style="display: flex; justify-content: center;">
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&color=%23ff6b6b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                        style="border-radius: 10px; max-width: 500px;"></iframe>
+            </div>
+        </div>
+        
+        <!-- Seção 3: Nossas Promessas -->
+        <div class="special-section glass-effect hover-effect">
+            <h2 class="section-title float-animation"><i class="fas fa-hand-holding-heart"></i> Nossas Promessas</h2>
+            
+            <p>Neste dia especial, eu renovo minhas promessas para você:</p>
+            
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="padding: 10px 0; border-bottom: 1px dashed #ffb3b3;">Prometo te amar incondicionalmente, nos dias bons e ruins</li>
+                <li style="padding: 10px 0; border-bottom: 1px dashed #ffb3b3;">Prometo ser seu porto seguro sempre que precisar</li>
+                <li style="padding: 10px 0; border-bottom: 1px dashed #ffb3b3;">Prometo cultivar nosso amor todos os dias</li>
+                <li style="padding: 10px 0; border-bottom: 1px dashed #ffb3b3;">Prometo crescer junto com você e apoiar seus sonhos</li>
+                <li style="padding: 10px 0;">Prometo fazer de cada dia ao seu lado uma nova aventura</li>
+            </ul>
+            
+            <p style="margin-top: 20px; font-style: italic;">"O amor não é apenas olhar um para o outro, é olhar juntos na mesma direção." - Antoine de Saint-Exupéry</p>
+        </div>
+        
+        <!-- Seção de Contagem Regressiva - ATUALIZADA -->
+        <div class="special-section glass-effect hover-effect">
+            <h2 class="section-title float-animation"><i class="fas fa-clock"></i> Nosso Tempo Juntos</h2>
+            
+            <div class="love-counter-container">
+                <div class="counter-grid">
+                    <div class="counter-item">
+                        <div class="counter-number" id="love-years">0</div>
+                        <div class="counter-label">Anos</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-number" id="love-months">0</div>
+                        <div class="counter-label">Meses</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-number" id="love-days">0</div>
+                        <div class="counter-label">Dias</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-number" id="love-hours">0</div>
+                        <div class="counter-label">Horas</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <p style="font-style: italic; color: #d32f2f; font-size: 1.1em;">
+                        Desde 24 de Maio de 2022
+                    </p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-style: italic; margin-top: 20px;">Cada segundo ao seu lado é um presente que eu guardo no coração ❤️</p>
+        </div>
+        
+        <!-- Seção 4: Nosso Futuro -->
+        <div class="special-section glass-effect hover-effect">
+            <h2 class="section-title float-animation"><i class="fas fa-star"></i> Nosso Futuro Juntos</h2>
+            
+            <p>Quando penso no futuro, vejo você em cada plano, em cada sonho:</p>
+            
+            <div style="background: rgba(255, 214, 214, 0.3); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <p>Sonho com a casa que vamos construir juntos, cheia de amor e risadas.</p>
+                <p>Sonho com as viagens que vamos fazer, explorando o mundo de mãos dadas.</p>
+                <p>Sonho com os desafios que vamos superar, sempre mais fortes juntos.</p>
+            </div>
+            
+            <p>Mal posso esperar para viver todas essas experiências ao seu lado, construindo memórias que durarão uma vida inteira.</p>
+        </div>
+        
+        <!-- Assinatura -->
+        <div style="text-align: right; margin-top: 50px;">
+            <p style="font-size: 1.3em; font-style: italic;">Com todo meu amor,</p>
+            <p style="font-size: 1.5em; color: #d32f2f; margin-top: 10px;">Benjamin</p>
+            <p style="margin-top: 30px;">Dia dos Namorados, 12 de Junho de 2025</p>
+        </div>
+        
+        <footer class="glass-effect" style="padding: 15px; margin-top: 50px;">
+            <p>Declaração criada com carinho por <strong>Guilherme</strong></p>
+            <p style="margin-top: 10px; font-size: 0.8em;">Presenteie quem você ama com uma declaração única e personalizada</p>
+        </footer>
+    </div>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Criação dos corações animados
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartIcons = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                    heart.classList.add('heart');
+                    
+                    // Posição aleatória
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.bottom = '-20px';
+                    
+                    // Tamanho aleatório
+                    const size = Math.random() * 25 + 15;
+                    heart.style.fontSize = size + 'px';
+                    
+                    // Duração da animação aleatória
+                    const duration = Math.random() * 8 + 5;
+                    heart.style.animationDuration = duration + 's';
+                    
+                    // Atraso aleatório
+                    heart.style.animationDelay = Math.random() * 3 + 's';
+                    
+                    container.appendChild(heart);
+                    
+                    // Remove o coração após a animação terminar
+                    setTimeout(() => {
+                        heart.remove();
+                    }, duration * 1000);
+                }, i * 300);
+            }
+        }
+        
+        // Cria corações inicialmente e depois a cada 8 segundos
+        createHearts();
+        setInterval(createHearts, 8000);
+        
+        // Botão "Voltar ao topo"
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Efeito de confete ao clicar no título
+        const coupleNames = document.querySelector('.couple-names');
+        coupleNames.addEventListener('click', () => {
+            const confettiCount = 50;
+            const container = document.getElementById('hearts-container');
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = ['❤️', '💖', '💕', '💗', '💓'][Math.floor(Math.random() * 5)];
+                confetti.style.position = 'fixed';
+                confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = Math.random() * window.innerHeight + 'px';
+                confetti.style.zIndex = '1000';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        });
+        
+        // Contador de relacionamento - ATUALIZADO
+        const startDate = new Date('2022-05-24T00:00:00');
+        
+        function updateLoveCounter() {
+            const now = new Date();
+            const diff = now - startDate;
+            
+            // Cálculo preciso considerando anos bissextos
+            const startYear = startDate.getFullYear();
+            const feb = (startYear % 4 === 0 && startYear % 100 !== 0) || startYear % 400 === 0 ? 29 : 28;
+            const daysInMonth = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
+            let days = now.getDate() - startDate.getDate();
+            let hours = now.getHours() - startDate.getHours();
+            
+            if (hours < 0) {
+                hours += 24;
+                days--;
+            }
+            if (days < 0) {
+                months--;
+                days += daysInMonth[(now.getMonth() - 1 + 12) % 12];
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            // Total de dias (alternativo)
+            const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('love-years').textContent = years;
+            document.getElementById('love-months').textContent = months;
+            document.getElementById('love-days').textContent = totalDays;
+            document.getElementById('love-hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            // Efeito visual ao atualizar
+            if (now.getSeconds() % 10 === 0) { // A cada 10 segundos
+                document.querySelectorAll('.counter-number').forEach(el => {
+                    el.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        el.style.transform = 'scale(1)';
+                    }, 300);
+                });
+            }
+        }
+        
+        // Atualiza imediatamente e depois a cada segundo
+        updateLoveCounter();
+        setInterval(updateLoveCounter, 1000);
+        
+        // Animação ao rolar a tela
+        ScrollReveal().reveal('.container', {
+            delay: 200,
+            distance: '50px',
+            origin: 'bottom',
+            easing: 'ease-in-out',
+            duration: 1000
+        });
+        
+        ScrollReveal().reveal('.message-section, .special-section', {
+            delay: 300,
+            distance: '30px',
+            origin: 'bottom',
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+        
+        ScrollReveal().reveal('.section-title', {
+            delay: 200,
+            distance: '20px',
+            origin: 'left',
+            duration: 800,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+        
+        ScrollReveal().reveal('.photo-item', {
+            delay: 200,
+            distance: '20px',
+            origin: 'bottom',
+            interval: 100,
+            easing: 'ease-out'
+        });
+        
+        ScrollReveal().reveal('.reasons-list li', {
+            delay: 100,
+            distance: '10px',
+            origin: 'right',
+            interval: 100,
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+</html>
